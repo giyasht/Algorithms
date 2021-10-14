@@ -1,0 +1,3 @@
+Assume that we have N workers and N jobs that should be done. For each pair (worker, job) we know salary that should be paid to worker for him to perform the job. Our goal is to complete all jobs minimizing total inputs, while assigning each worker to exactly one job and vice versa.
+
+We can also rephrase this problem in terms of graph theory. Let’s look at the job and workers as if they were a bipartite graph, where each edge between the ith worker and jth job has weight of cij. Then our task is to find minimum-weight matching in the graph (the matching will consists of N edges, because our bipartite graph is complete).
