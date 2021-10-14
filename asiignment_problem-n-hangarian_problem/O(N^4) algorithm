@@ -1,0 +1,22 @@
+As mentioned above, we are dealing with a bipartite graph. The main idea of the method is the following: consider we’ve found the perfect matching using only edges of weight 0 (hereinafter called “0-weight edges”). Obviously, these edges will be the solution of the assignment problem. If we can’t find perfect matching on the current step, then the Hungarian algorithm changes weights of the available edges in such a way that the new 0-weight edges appear and these changes do not influence the optimal solution.
+
+To clarify, let’s look at the step-by-step overview:
+
+Step 0)
+A. For each vertex from left part (workers) find the minimal outgoing edge and subtract its weight from all weights connected with this vertex. This will introduce 0-weight edges (at least one).
+
+B. Apply the same procedure for the vertices in the right part (jobs).
+
+ctually, this step is not necessary, but it decreases the number of main cycle iterations.
+
+Step 1)
+A. Find the maximum matching using only 0-weight edges (for this purpose you can use max-flow algorithm, augmenting path algorithm, etc.).
+
+B. If it is perfect, then the problem is solved. Otherwise find the minimum vertex cover V (for the subgraph with 0-weight edges only), the best way to do this is to use Köning’s graph theorem.
+
+
+Step 3) Repeat Step 1 until solved.
+
+But there is a nuance here; finding the maximum matching in step 1 on each iteration will cause the algorithm to become O(n5). In order to avoid this, on each step we can just modify the matching from the previous step, which only takes O(n2) operations.
+
+It’s easy to see that no more than n2 iterations will occur, because every time at least one edge becomes 0-weight. Therefore, the overall complexity is O(n4).
