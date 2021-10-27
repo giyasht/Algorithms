@@ -11,8 +11,11 @@ int search(int arr[], int n, int x)
   
 int main(void) 
 { 
+    int x;
     int arr[] = { 7, 5, 49, 36, 4057 }; 
-    int x = 49; 
+    //Input data form user that want to search in the above array
+    printf("Enter the number : ");
+    scanf("%d",&x);
     int n = sizeof(arr) / sizeof(arr[0]); 
     int result = search(arr, n, x); 
     if(result == -1) 
