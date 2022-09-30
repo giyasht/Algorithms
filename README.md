@@ -9,3 +9,7 @@ This repository contains a couple of some of the common algorithms on DSA. So fe
  - Create a commit with a commit message ```git commit -m <commit-msg>```.
  - After commiting, push the changes to origin using command ```git push origin <branch-name>```.
  - Create a pull request and wait for your pull request to be merged.
+## Things to keep in mind while contributing
+ - Make sure the algorithm you are contributing is not already there in the repo otherwise your PR will not be merged.
+ - ALso include problem statement in your algorithm file.
+ - Contribute in the correct folder only.
